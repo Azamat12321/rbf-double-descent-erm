@@ -14,7 +14,11 @@ This project empirically demonstrates the Double Descent curve using a shallow R
 * **Optimization:** Instead of iterative gradient descent, the system is solved analytically via the **Moore-Penrose Pseudoinverse**. In the overparameterized regime ($N_{params} > N_{train}$), this naturally converges to the minimum-norm solution ($||w||_2 \rightarrow \min$), providing implicit regularization that allows the model to generalize despite perfectly interpolating the noisy training data.
 
 ## Results
-![Double Descent Curve](double_descent_curve.png)
+## Results & Feature Attribution
+![SHAP Summary Plot](shap_summary.png)
+
+*The SHAP summary plot illustrates how covariance eigenvalues and specific frequency bands shift the model's log-odds toward the concentrated cognitive state.*
+
 
 1. **Underparameterized Regime ($N_{params} < N_{train}$):** The model follows classical ERM behavior. Test error decreases as model capacity increases, reaching a minimum before starting to overfit.
 2. **Interpolation Threshold ($N_{params} = N_{train}$):** The system has exactly one solution. The model fits the training noise perfectly (Train MSE $\rightarrow 0$), leading to catastrophic variance and a massive spike in Test Error.
